@@ -18,7 +18,9 @@ class HelloThere(Resource):
 
 class UploadFile(Resource):
     def put(self):
+        print(request.__dict__)
         file = request.files.get("file")
+        # file = request.get("file")
         bytes_stream = file.read()
         html_payload = FileHTMLConversion(bytes_stream)
         return jsonify(

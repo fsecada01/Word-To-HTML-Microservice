@@ -1,0 +1,7 @@
+flask
+flask-api
+flask-restful
+flask
+gunicorn
+mammoth
+python-decouple

@@ -1,0 +1,8 @@
+-c core_requirements.in 
+
+black
+flask-debugtoolbar
+jupyterlab
+libsass
+pyperclip
+Werkzeug
