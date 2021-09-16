@@ -1,7 +1,7 @@
 -c core_requirements.in 
 
 black
-flask-debugtoolbar
+fastapi-debug-toolbar
 jupyterlab
 libsass
 pyperclip

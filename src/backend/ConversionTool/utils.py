@@ -1,3 +1,13 @@
+from backend.ConversionTool.core import FileHTMLConversion
+
+tokens = [
+    # tokens as static list; intended to avoid the need for DB management
+    "this_is_a_token",
+    "secondary_token",
+    "random_token",
+]
+
+
 def iter_doc_parts(document, style_name):
     paragraphs = document.paragraphs
     headers = [
@@ -24,3 +34,13 @@ def transform_paragraph(element):
         return element.copy(style_id="Heading2")
     else:
         return element
+
+
+def process_file(file: str or bytes):
+    if type(file) is str:
+        with open(file, "rb+") as f:
+            bytes_stream = f.read()
+    else:
+        bytes_stream = file
+    html_payload = FileHTMLConversion(bytes_stream)
+    return str(html_payload)

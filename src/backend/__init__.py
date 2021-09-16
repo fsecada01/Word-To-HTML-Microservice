@@ -1,4 +1,5 @@
 from flask import Flask
+from fastapi import FastAPI
 
 
 def get_app(debug=False):
@@ -8,13 +9,14 @@ def get_app(debug=False):
     :return app:
     """
 
-    app = Flask(__name__)
-    app.config["SECRET_KEY"] = "this_is_a_secret_key"
-
-    if debug is True:
-        app.testing = True
+    app = FastAPI(
+        debug=debug,
+        title='Microsoft Word to HTML Converter',
+        description="A microservice to convert word documents into HTML. "
+                    "Intended for consumption by ADC44's admin panel."
+    )
 
     return app
 
 
-flask_app = get_app()
+fast_app = get_app()
