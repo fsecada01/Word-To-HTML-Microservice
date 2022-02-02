@@ -1,9 +1,9 @@
 fastapi
-fastapi-utils
+# fastapi-utils
 gunicorn; platform_system != 'Windows'
 mammoth
-pyjwt
+# pyjwt
 python-decouple
 python-multipart
-uuid
+# uuid
 uvicorn

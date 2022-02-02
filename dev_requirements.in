@@ -2,6 +2,9 @@
 
 black
 fastapi-debug-toolbar
+git+https://github.com/encode/httpcore.git
+httpx
+httpx[cli]
 jupyterlab
 libsass
 pyperclip

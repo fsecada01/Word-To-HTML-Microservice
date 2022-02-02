@@ -1,13 +1,29 @@
-from backend import fast_app
-from backend.ConversionTool.entry_point import HelloThere, UploadFile
-from flask_restful import Api
+from backend import fast_app as app
+from backend.ConversionTool.utils import process_file
+from fastapi import File
 
 
-api = Api(fast_app)
+@app.get("/")
+async def greeting():
+    return {
+        "message": "Hello! Thanks for visiting. Please upload your "
+        "Microsoft Word file to /upload. Thanks!"
+    }
 
-api.add_resource(HelloThere, "/")
 
-api.add_resource(UploadFile, "/upload")
+# @app.route("/upload", methods=["GET", "POST", "PUT"])
+# async def convert_document(file: UploadFile, request: Request or None):
+# print(methods)
+@app.put("/upload")
+async def convert_document(file: bytes = File(...)):
+    if file:
+        html_content = process_file(file)
+        return {"data": html_content}
+    else:
+        return {"data": "Waiting on a file from you!"}
+
 
 if __name__ == "__main__":
-    fast_app.run(debug=True, port=5001)
+    import uvicorn
+
+    uvicorn.run("main:app", reload=True, debug=True, port=5001)
