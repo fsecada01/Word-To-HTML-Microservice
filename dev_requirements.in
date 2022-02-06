@@ -2,7 +2,7 @@
 
 black
 fastapi-debug-toolbar
-git+https://github.com/encode/httpcore.git
+git+https://github.com/fsecada01/httpcore.git
 httpx
 httpx[cli]
 jupyterlab

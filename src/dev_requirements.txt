@@ -58,7 +58,7 @@ decorator==5.1.1
     # via ipython
 defusedxml==0.7.1
     # via nbconvert
-entrypoints==0.3
+entrypoints==0.4
     # via
     #   jupyter-client
     #   jupyterlab-server
@@ -71,7 +71,7 @@ fastapi==0.73.0
     #   fastapi-debug-toolbar
 fastapi-debug-toolbar==0.2.1
     # via -r dev_requirements.in
-httpcore @ git+https://github.com/encode/httpcore.git
+httpcore @ git+https://github.com/fsecada01/httpcore.git
     # via
     #   -r dev_requirements.in
     #   httpx
@@ -123,12 +123,12 @@ jupyter-core==4.9.1
     #   nbconvert
     #   nbformat
     #   notebook
-jupyter-server==1.13.4
+jupyter-server==1.13.5
     # via
     #   jupyterlab
     #   jupyterlab-server
     #   nbclassic
-jupyterlab==3.2.8
+jupyterlab==3.2.9
     # via -r dev_requirements.in
 jupyterlab-pygments==0.1.2
     # via nbconvert
@@ -217,8 +217,10 @@ pytz==2021.3
     # via babel
 pywin32==303
     # via jupyter-core
-pywinpty==2.0.1
-    # via terminado
+pywinpty==1.1.6
+    # via
+    #   jupyter-server
+    #   terminado
 pyzmq==22.3.0
     # via
     #   jupyter-client
