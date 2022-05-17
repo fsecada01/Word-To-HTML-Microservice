@@ -1,6 +1,25 @@
+from fastapi import File
+# from fastapi.middleware.cors import CORSMiddleware
+from starlette.middleware.cors import CORSMiddleware
+
 from backend import fast_app as app
 from backend.ConversionTool.utils import process_file
-from fastapi import File
+
+origins = [
+    "http://127.0.0.1:5000",
+    "http://localhost:5000",
+    "https://e6dmdc.deta.dev/",
+    "https://www.adc44.org",
+    "https://adc44.org",
+]
+
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=origins,
+    allow_credentials=True,
+    allow_methods=["GET", "PUT"],
+    allow_headers=["*"],
+)
 
 
 @app.get("/")

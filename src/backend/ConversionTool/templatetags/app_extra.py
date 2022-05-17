@@ -1,6 +1,7 @@
-from django import template
 import os
+
 from ConversionTool.core import FileHTMLConversion, FileHTMLConvertedParts
+from django import template
 
 register = template.Library()
 

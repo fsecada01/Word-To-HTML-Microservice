@@ -1,17 +1,20 @@
-from backend import fast_app as app
-from backend.ConversionTool.utils import process_file
 from fastapi import File
 
 # from fastapi.middleware.cors import CORSMiddleware
 from starlette.middleware.cors import CORSMiddleware
 
+from backend import fast_app as app
+from backend.ConversionTool.utils import process_file
 
 origins = [
     "http://127.0.0.1:5000",
+    "http://127.0.0.1:8000",
     "http://localhost:5000",
+    "http://localhost:8000",
     "https://e6dmdc.deta.dev/",
     "https://www.adc44.org",
     "https://adc44.org",
+    "https://rankedjobs.com",
 ]
 
 app.add_middleware(

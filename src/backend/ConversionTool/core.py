@@ -1,6 +1,7 @@
+import io
+
 import mammoth
 from mammoth import transforms
-import io
 
 """
 This app is intended to convert existing .docx files into HTML files.  These
