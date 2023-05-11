@@ -1,10 +1,10 @@
+from backend import get_app
+from backend.ConversionTool.utils import process_file
+from backend.settings import app_settings
 from fastapi import File
 
 # from fastapi.middleware.cors import CORSMiddleware
 from starlette.middleware.cors import CORSMiddleware
-
-from backend import fast_app as app
-from backend.ConversionTool.utils import process_file
 
 origins = [
     "http://127.0.0.1:5000",
@@ -17,7 +17,10 @@ origins = [
     "https://rankedjobs.com",
 ]
 
-app.add_middleware(
+fast_app = get_app(settings_inst=app_settings)
+
+
+fast_app.add_middleware(
     CORSMiddleware,
     allow_origins=origins,
     allow_credentials=True,
@@ -26,7 +29,7 @@ app.add_middleware(
 )
 
 
-@app.get("/")
+@fast_app.get("/")
 async def greeting():
     return {
         "message": "Hello! Thanks for visiting. Please upload your "
@@ -37,10 +40,10 @@ async def greeting():
 # @app.route("/upload", methods=["GET", "POST", "PUT"])
 # async def convert_document(file: UploadFile, request: Request or None):
 # print(methods)
-@app.put("/upload")
-async def convert_document(file: bytes = File(...)):
+@fast_app.put("/upload")
+async def convert_document(file: bytes = File(...), type_name: str = "html"):
     if file:
-        html_content = process_file(file)
+        html_content = process_file(file, type_name=type_name)
         return {"data": html_content}
     else:
         return {"data": "Waiting on a file from you!"}
@@ -49,4 +52,4 @@ async def convert_document(file: bytes = File(...)):
 if __name__ == "__main__":
     import uvicorn
 
-    uvicorn.run("main:app", reload=True, debug=True, port=5001)
+    uvicorn.run("main:fast_app", reload=True, port=5001)

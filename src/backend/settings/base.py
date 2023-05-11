@@ -1,11 +1,8 @@
-import os
-
 from decouple import config
+from pydantic import BaseSettings
 
-BASE_DIR = os.path.dirname(
-    os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-)
-BACKEND_DIR = os.path.join(BASE_DIR, "backend")
 # FRONTEND_DIR = os.path.join(BASE_DIR, "frontend")
 
-SECRET_KEY = config("SECRET_KEY")
+
+class Settings(BaseSettings):
+    SECRET_KEY: str = config("SECRET_KEY")

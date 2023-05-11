@@ -1,3 +1,5 @@
-from .base import *
+from .base import Settings as BaseSettings
 
-DEBUG = True
+
+class Settings(BaseSettings):
+    DEBUG = True

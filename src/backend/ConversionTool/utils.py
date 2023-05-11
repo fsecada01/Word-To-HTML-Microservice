@@ -1,4 +1,4 @@
-from backend.ConversionTool.core import FileHTMLConversion
+from backend.ConversionTool.core import file_html_conversion
 
 tokens = [
     # tokens as static list; intended to avoid the need for DB management
@@ -36,11 +36,11 @@ def transform_paragraph(element):
         return element
 
 
-def process_file(file: str or bytes):
+def process_file(file: str or bytes, type_name: str = "html"):
     if type(file) is str:
         with open(file, "rb+") as f:
             bytes_stream = f.read()
     else:
         bytes_stream = file
-    html_payload = FileHTMLConversion(bytes_stream)
+    html_payload = file_html_conversion(bytes_stream, type_name=type_name)
     return str(html_payload)

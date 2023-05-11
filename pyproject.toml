@@ -1,0 +1,57 @@
+[tool.ruff]
+select = ["E", "F", "I", "PL", "I"]
+
+exclude = [
+    ".bzr",
+    ".direnv",
+    ".eggs",
+    ".git",
+    ".hg",
+    ".mypy_cache",
+    ".nox",
+    ".pants.d",
+    ".pytype",
+    ".ruff_cache",
+    ".svn",
+    ".tox",
+    ".venv",
+    "__pypackages__",
+    "_build",
+    "buck-out",
+    "build",
+    "dist",
+    "node_modules",
+    "venv",
+    "migrations",
+    "old_core",
+
+]
+
+line-length = 84
+
+target-version = "py310"
+
+show-fixes = true
+
+format = "grouped"
+
+
+[tool.ruff.mccabe]
+max-complexity = 10
+
+[tool.ruff.per-file-ignores]
+#"src/backend/RankedJobs/settings/*.py" = ["F403", "F405"]
+"__init__.py" = ["F403", "F405", "E501"]
+"consts.py" = ["E501"]
+
+[tool.black]
+line-length=80
+target-version = ['py37', 'py38', 'py39', 'py310', 'py311']
+
+[tool.isort]
+profile = "black"
+multi_line_output = 3
+include_trailing_comma = true
+force_grid_wrap = 0
+line_length = 80
+

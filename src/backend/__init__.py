@@ -1,9 +1,10 @@
 from fastapi import FastAPI
 
 
-def get_app(debug=False):
+def get_app(debug=False, settings_inst=None):
     """
     Creates instance of Flask application.
+    :param settings_inst:
     :param debug:
     :return app:
     """
@@ -15,7 +16,7 @@ def get_app(debug=False):
         "Intended for consumption by ADC44's admin panel.",
     )
 
+    if settings_inst:
+        app.settings = settings_inst
+
     return app
-
-
-fast_app = get_app()

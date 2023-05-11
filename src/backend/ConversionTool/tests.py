@@ -3,8 +3,10 @@ import os
 import docx
 from secretary import Renderer
 
-from backend.apps.ConversionTool import (iter_doc_parts,
-                                         iterate_document_sections)
+from backend.apps.ConversionTool import (
+    iter_doc_parts,
+    iterate_document_sections,
+)
 
 # Create your tests here.
 
@@ -32,7 +34,7 @@ def docx_section_test(file_loc):
             return [
                 ele.strip()
                 for ele in p.text.split(",")
-                if ele != "" and ele is not None
+                if ele and ele is not None
             ]
 
 
