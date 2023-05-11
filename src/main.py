@@ -12,6 +12,7 @@ origins = [
     "http://localhost:5000",
     "http://localhost:8000",
     "https://e6dmdc.deta.dev/",
+    "https://winword_html-1-r7596704.deta.app/",
     "https://www.adc44.org",
     "https://adc44.org",
     "https://rankedjobs.com",
@@ -52,4 +53,4 @@ async def convert_document(file: bytes = File(...), type_name: str = "html"):
 if __name__ == "__main__":
     import uvicorn
 
-    uvicorn.run("main:fast_app", reload=True, port=5001)
+    uvicorn.run("main:fast_app", host="0.0.0.0", reload=True, port=5001)
