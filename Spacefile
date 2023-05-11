@@ -11,3 +11,7 @@ micros:
       - name: SECRET_KEY
         description: Secret key for the application only available to this Micro
         default: "secret_key"
+    public_routes:
+      - "/"
+      - "/upload"
+      - "/docs"

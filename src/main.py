@@ -6,28 +6,29 @@ from fastapi import File
 # from fastapi.middleware.cors import CORSMiddleware
 from starlette.middleware.cors import CORSMiddleware
 
-origins = [
-    "http://127.0.0.1:5000",
-    "http://127.0.0.1:8000",
-    "http://localhost:5000",
-    "http://localhost:8000",
-    "https://e6dmdc.deta.dev/",
-    "https://winword_html-1-r7596704.deta.app/",
-    "https://www.adc44.org",
-    "https://adc44.org",
-    "https://rankedjobs.com",
-]
+# origins = [
+#     "http://127.0.0.1:5000",
+#     "http://127.0.0.1:8000",
+#     "http://localhost:5000",
+#     "http://localhost:8000",
+#     "https://e6dmdc.deta.dev",
+#     "https://deta.space",
+#     "https://winword_html-1-r7596704.deta.app",
+#     "https://www.adc44.org",
+#     "https://adc44.org",
+#     "https://rankedjobs.com",
+# ]
 
 fast_app = get_app(settings_inst=app_settings)
 
 
-fast_app.add_middleware(
-    CORSMiddleware,
-    allow_origins=origins,
-    allow_credentials=True,
-    allow_methods=["GET", "PUT"],
-    allow_headers=["*"],
-)
+# fast_app.add_middleware(
+#     CORSMiddleware,
+#     allow_origins=origins,
+#     allow_credentials=True,
+#     allow_methods=["GET", "PUT"],
+#     allow_headers=["*"],
+# )
 
 
 @fast_app.get("/")

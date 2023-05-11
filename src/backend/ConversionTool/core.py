@@ -28,11 +28,12 @@ def _file_type_conv(
     if type_name == "html":
         split_content = [f"<h1>{ele}" for ele in content.split("<h1>") if ele]
     else:
-        split_content = content.split("\n")
+        split_content = content.split("\\")
     return split_content
 
 
 def file_html_conversion(stream: bytes, type_name: str = "html"):
     content_parts = _file_type_conv(stream, type_name=type_name)
-    payload = ",".join(content_parts)
+    join_str = "," if type_name == "html" else ""
+    payload = join_str.join(content_parts)
     return payload
