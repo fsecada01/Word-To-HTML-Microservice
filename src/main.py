@@ -1,10 +1,11 @@
-from backend import get_app
-from backend.ConversionTool.utils import process_file
-from backend.settings import app_settings
 from fastapi import File
 
 # from fastapi.middleware.cors import CORSMiddleware
 from starlette.middleware.cors import CORSMiddleware
+
+from backend import get_app
+from backend.ConversionTool.utils import process_file
+from backend.settings import app_settings
 
 # origins = [
 #     "http://127.0.0.1:5000",

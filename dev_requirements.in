@@ -3,9 +3,7 @@
 Werkzeug
 black
 fastapi-debug-toolbar
-git+https://github.com/fsecada01/httpcore.git
 httpx
-httpx[cli]
 isort
 jupyterlab
 libsass
