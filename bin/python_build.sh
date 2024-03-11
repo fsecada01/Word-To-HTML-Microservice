@@ -1,6 +1,6 @@
 #!/bin/bash
 
-cd /opt/resume_maker || exit
+cd /opt/winword_microservice || exit
 python3.12 -m venv .venv
 source .venv/bin/activate
 python -m pip install -U pip pip-tools setuptools wheel

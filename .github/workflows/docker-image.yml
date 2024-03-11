@@ -38,8 +38,8 @@ jobs:
           docker build  \
           --ssh default=${{ secrets.SSH_PRIVATE_KEY }} \
           --build-arg GIT_BRANCH=${{ steps.extract_branch.outputs.branch }} \
-          --tag resume_maker:$(date +%s) .
+          --tag winword_microservice:$(date +%s) .
         ssh: |
           default=${{ env.SSH_AUTH_SOCK }}
         push: true
-        tags: s3docker.francissecada.com/resume_maker:${{ steps.extract_branch.outputs.branch }}.${{ steps.date.outputs.date }}
+        tags: s3docker.francissecada.com/winword_microservice:${{ steps.extract_branch.outputs.branch }}.${{ steps.date.outputs.date }}
