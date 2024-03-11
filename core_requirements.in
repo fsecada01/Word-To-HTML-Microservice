@@ -4,3 +4,4 @@ mammoth
 python-decouple
 python-multipart
 uvicorn
+typing-inspect
