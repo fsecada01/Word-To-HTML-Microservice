@@ -9,4 +9,3 @@ do
 	pip-compile --resolver=backtracking --upgrade $FILE.in
 done
 pip-sync core_requirements.txt dev_requirements.txt
-python -m nltk.downloader punkt
