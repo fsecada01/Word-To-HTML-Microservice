@@ -22,7 +22,7 @@ idna==3.6
     # via anyio
 mammoth==1.7.0
     # via -r requirements.in
-pydantic==2.6.3
+pydantic==2.6.4
     # via fastapi
 pydantic-core==2.16.3
     # via pydantic

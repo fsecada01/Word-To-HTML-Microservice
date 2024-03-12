@@ -1,7 +1,6 @@
 from decouple import config
 from pydantic_settings import BaseSettings
 
-
 # FRONTEND_DIR = os.path.join(BASE_DIR, "frontend")
 
 

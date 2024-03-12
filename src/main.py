@@ -4,6 +4,7 @@ from fastapi import File
 from starlette.middleware.cors import CORSMiddleware
 
 from backend import get_app
+from backend.ConversionTool.core import convert_to_format
 from backend.ConversionTool.utils import process_file
 from backend.settings import app_settings
 
@@ -50,6 +51,18 @@ async def convert_document(file: bytes = File(...), type_name: str = "html"):
         return {"data": html_content}
     else:
         return {"data": "Waiting on a file from you!"}
+
+
+@fast_app.post("/convert")
+async def convert_string(str_or_html: str, type_name: str = "html"):
+    if str_or_html:
+        html_content = convert_to_format(
+            content=str_or_html, type_name=type_name
+        )
+
+        return {"data": html_content}
+    else:
+        return {"data": "Waiting on a string from you!"}
 
 
 if __name__ == "__main__":

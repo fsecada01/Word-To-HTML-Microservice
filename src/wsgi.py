@@ -18,7 +18,7 @@ origins = [
     "https://www.adc44.org",
     "https://adc44.org",
     "https://rankedjobs.com",
-    "https://html2winword.francissecada.com"
+    "https://html2winword.francissecada.com",
 ]
 
 fast_app = get_app(settings_inst=app_settings)

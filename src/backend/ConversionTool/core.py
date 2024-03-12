@@ -17,10 +17,18 @@ def _file_type_conv(
     file_stream: bytes, trans_ele=None, type_name: str = "html"
 ):
     stream = io.BytesIO(file_stream)
+    return convert_to_format(
+        content=stream,
+        trans_ele=trans_ele,
+        type_name=type_name,
+    )
+
+
+def convert_to_format(content: bytes | str | io.BytesIO, trans_ele, type_name):
     transform_document = transforms.paragraph(trans_ele) if trans_ele else None
     func_name = f"convert_to_{type_name}"
     result = getattr(mammoth, func_name)(
-        stream, transform_document=transform_document
+        content, transform_document=transform_document
     )
     content = result.value
     if result.messages:
