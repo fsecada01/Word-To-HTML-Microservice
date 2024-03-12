@@ -55,7 +55,7 @@ colorama==0.4.6
     #   -c core_requirements.txt
     #   click
     #   ipython
-comm==0.2.1
+comm==0.2.2
     # via ipykernel
 debugpy==1.8.1
     # via ipykernel

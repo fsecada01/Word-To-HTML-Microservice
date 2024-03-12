@@ -1,5 +1,6 @@
 fastapi
 gunicorn; platform_system != 'Windows'
+html2text
 mammoth
 python-decouple
 python-multipart

@@ -1,36 +1,12 @@
+from typing import Literal
+
 from fastapi import File
 
-# from fastapi.middleware.cors import CORSMiddleware
-from starlette.middleware.cors import CORSMiddleware
-
 from backend import get_app
-from backend.ConversionTool.core import convert_to_format
-from backend.ConversionTool.utils import process_file
+from backend.ConversionTool.utils import process_file, str_conversion
 from backend.settings import app_settings
 
-# origins = [
-#     "http://127.0.0.1:5000",
-#     "http://127.0.0.1:8000",
-#     "http://localhost:5000",
-#     "http://localhost:8000",
-#     "https://e6dmdc.deta.dev",
-#     "https://deta.space",
-#     "https://winword_html-1-r7596704.deta.app",
-#     "https://www.adc44.org",
-#     "https://adc44.org",
-#     "https://rankedjobs.com",
-# ]
-
 fast_app = get_app(settings_inst=app_settings)
-
-
-# fast_app.add_middleware(
-#     CORSMiddleware,
-#     allow_origins=origins,
-#     allow_credentials=True,
-#     allow_methods=["GET", "PUT"],
-#     allow_headers=["*"],
-# )
 
 
 @fast_app.get("/")
@@ -41,9 +17,6 @@ async def greeting():
     }
 
 
-# @app.route("/upload", methods=["GET", "POST", "PUT"])
-# async def convert_document(file: UploadFile, request: Request or None):
-# print(methods)
 @fast_app.put("/upload")
 async def convert_document(file: bytes = File(...), type_name: str = "html"):
     if file:
@@ -54,11 +27,11 @@ async def convert_document(file: bytes = File(...), type_name: str = "html"):
 
 
 @fast_app.post("/convert")
-async def convert_string(str_or_html: str, type_name: str = "html"):
+async def convert_string(
+    str_or_html: str, type_name: Literal["html", "markdown", "text"] = "html"
+):
     if str_or_html:
-        html_content = convert_to_format(
-            content=str_or_html, type_name=type_name
-        )
+        html_content = str_conversion(content=str_or_html, type_name=type_name)
 
         return {"data": html_content}
     else:

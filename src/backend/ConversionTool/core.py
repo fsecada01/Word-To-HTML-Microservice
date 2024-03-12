@@ -1,8 +1,3 @@
-import io
-
-import mammoth
-from mammoth import transforms
-
 """
 This app is intended to convert existing .docx files into HTML files.  These
 functions should extract section and heading data from document files and
@@ -11,6 +6,12 @@ for python-mammoth to effectively parse the files.
 
 Right now, only .docx files are working
 """
+
+import io
+from typing import Literal
+
+import mammoth
+from mammoth import transforms
 
 
 def _file_type_conv(
@@ -44,7 +45,9 @@ def convert_to_format(
     return split_content
 
 
-def file_html_conversion(stream: bytes, type_name: str = "html"):
+def file_html_conversion(
+    stream: bytes, type_name: Literal["html", "markdown", "text"] = "html"
+):
     content_parts = _file_type_conv(stream, type_name=type_name)
     join_str = "," if type_name == "html" else ""
     payload = join_str.join(content_parts)

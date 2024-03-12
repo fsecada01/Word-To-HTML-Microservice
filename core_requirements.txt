@@ -18,6 +18,8 @@ fastapi==0.110.0
     # via -r core_requirements.in
 h11==0.14.0
     # via uvicorn
+html2text==2024.2.26
+    # via -r core_requirements.in
 idna==3.6
     # via anyio
 mammoth==1.7.0
