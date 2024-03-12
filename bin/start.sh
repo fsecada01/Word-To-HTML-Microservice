@@ -5,6 +5,6 @@ cd ${__dir}/.. || exit
 source .venv/bin/activate
 cd src || exit
 # python -m backend.utils
-gunicorn wsgi:app -w 4 -k uvicorn.workers.UvicornWorker \
+gunicorn main:app -w 4 -k uvicorn.workers.UvicornWorker \
 --forwarded-allow-ips "*" \
 -b 0.0.0.0:"${PORT}"
