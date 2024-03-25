@@ -40,7 +40,9 @@ def transform_paragraph(element):
         return element
 
 
-def process_file(file: str or bytes, type_name: str = "html"):
+def process_file(
+    file: str or bytes, type_name: Literal["html", "markdown", "text"] = "html"
+):
     if isinstance(file, str):
         with open(file, "rb+") as f:
             bytes_stream = f.read()
