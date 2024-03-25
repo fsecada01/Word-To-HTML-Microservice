@@ -20,7 +20,7 @@ h11==0.14.0
     # via uvicorn
 idna==3.6
     # via anyio
-mammoth==1.7.0
+mammoth==1.7.1
     # via -r requirements.in
 pydantic==2.6.4
     # via fastapi
@@ -39,5 +39,5 @@ typing-extensions==4.10.0
     #   fastapi
     #   pydantic
     #   pydantic-core
-uvicorn==0.28.0
+uvicorn==0.29.0
     # via -r requirements.in

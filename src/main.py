@@ -1,3 +1,4 @@
+import html
 from typing import Literal
 
 from fastapi import File
@@ -31,7 +32,13 @@ async def convert_string(
     str_or_html: str, type_name: Literal["html", "markdown", "text"] = "html"
 ):
     if str_or_html:
-        html_content = str_conversion(content=str_or_html, type_name=type_name)
+        if type_name in ("text", "markdown"):
+            html_content = str_conversion(
+                content=str_or_html, type_name=type_name
+            )
+        else:
+            html_content = html.unescape(str_or_html)
+            html_content = html.escape(html_content)
 
         return {"data": html_content}
     else:

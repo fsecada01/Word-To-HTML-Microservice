@@ -3,10 +3,7 @@ import os
 import docx
 from secretary import Renderer
 
-from backend.apps.ConversionTool import (
-    iter_doc_parts,
-    iterate_document_sections,
-)
+from backend.ConversionTool import iter_doc_parts, iterate_document_sections
 
 # Create your tests here.
 

@@ -22,7 +22,7 @@ html2text==2024.2.26
     # via -r core_requirements.in
 idna==3.6
     # via anyio
-mammoth==1.7.0
+mammoth==1.7.1
     # via -r core_requirements.in
 mypy-extensions==1.0.0
     # via typing-inspect
@@ -46,5 +46,5 @@ typing-extensions==4.10.0
     #   typing-inspect
 typing-inspect==0.9.0
     # via -r core_requirements.in
-uvicorn==0.28.0
+uvicorn==0.29.0
     # via -r core_requirements.in
