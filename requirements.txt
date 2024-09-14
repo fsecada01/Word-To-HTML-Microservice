@@ -4,27 +4,27 @@
 #
 #    pip-compile requirements.in
 #
-annotated-types==0.6.0
+annotated-types==0.7.0
     # via pydantic
-anyio==4.3.0
+anyio==4.4.0
     # via starlette
 click==8.1.7
     # via uvicorn
-cobble==0.1.3
+cobble==0.1.4
     # via mammoth
 colorama==0.4.6
     # via click
-fastapi==0.110.0
+fastapi==0.114.2
     # via -r requirements.in
 h11==0.14.0
     # via uvicorn
-idna==3.6
+idna==3.8
     # via anyio
-mammoth==1.7.1
+mammoth==1.8.0
     # via -r requirements.in
-pydantic==2.6.4
+pydantic==2.9.1
     # via fastapi
-pydantic-core==2.16.3
+pydantic-core==2.23.3
     # via pydantic
 python-decouple==3.8
     # via -r requirements.in
@@ -32,12 +32,12 @@ python-multipart==0.0.9
     # via -r requirements.in
 sniffio==1.3.1
     # via anyio
-starlette==0.36.3
+starlette==0.38.5
     # via fastapi
-typing-extensions==4.10.0
+typing-extensions==4.12.2
     # via
     #   fastapi
     #   pydantic
     #   pydantic-core
-uvicorn==0.29.0
+uvicorn==0.30.6
     # via -r requirements.in
